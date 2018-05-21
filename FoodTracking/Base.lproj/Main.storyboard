@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zxr-me-54G">
-                                <rect key="frame" x="0.0" y="40" width="414" height="397.66666666666669"/>
+                                <rect key="frame" x="0.0" y="40" width="414" height="444"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TO-H7-pxH">
                                         <rect key="frame" x="164" y="0.0" width="86.333333333333314" height="20.333333333333332"/>
@@ -36,32 +35,28 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="320" verticalCompressionResistancePriority="320" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="r68-5m-Hch">
-                                        <rect key="frame" x="0.0" y="66.333333333333343" width="414" height="331.33333333333326"/>
+                                        <rect key="frame" x="7" y="66.333333333333343" width="400" height="319.66666666666663"/>
                                         <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="r68-5m-Hch" secondAttribute="height" multiplier="5:4" id="m3h-53-23r"/>
-                                        </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="c2W-dR-Q4b" appends="YES" id="Of2-MX-i0W"/>
                                         </connections>
                                     </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="twu-uV-laB" customClass="RatingControl" customModule="FoodTracking" customModuleProvider="target">
+                                        <rect key="frame" x="74" y="394" width="266" height="50"/>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="1Xk-h2-bQ4" secondAttribute="trailing" id="A9E-qs-009"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="r68-5m-Hch" secondAttribute="trailing" id="mxo-Dl-VRh"/>
-                                    <constraint firstItem="r68-5m-Hch" firstAttribute="leading" secondItem="zxr-me-54G" secondAttribute="leadingMargin" id="o7f-iX-rgk"/>
+                                    <constraint firstItem="twu-uV-laB" firstAttribute="leading" secondItem="zxr-me-54G" secondAttribute="leading" constant="74" id="c4r-1e-Nxt"/>
+                                    <constraint firstItem="r68-5m-Hch" firstAttribute="width" secondItem="zxr-me-54G" secondAttribute="height" multiplier="100:111" id="rg1-dN-eVN"/>
                                 </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="twu-uV-laB" customClass="RatingControl" customModule="FoodTracking" customModuleProvider="target">
-                                <rect key="frame" x="20" y="483" width="252" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zxr-me-54G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Qkx-ou-CIL"/>
-                            <constraint firstItem="zxr-me-54G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="SjZ-lj-0Pj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zxr-me-54G" secondAttribute="trailing" id="qOd-1f-tIm"/>
+                            <constraint firstItem="zxr-me-54G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="6Yj-7u-35n"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zxr-me-54G" secondAttribute="bottom" constant="252" id="Wbm-xH-bNJ"/>
+                            <constraint firstItem="1Xk-h2-bQ4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="u2q-bc-uRG"/>
+                            <constraint firstItem="zxr-me-54G" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yJS-x7-5Og"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
