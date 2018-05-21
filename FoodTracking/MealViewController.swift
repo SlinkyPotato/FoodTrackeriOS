@@ -26,6 +26,14 @@ class MealViewController: UIViewController,  UITextFieldDelegate, UIImagePickerC
         // Do any additional setup after loading the view, typically from a nib.
         nameTextField.delegate = self
         
+        // Set up the views if edting an existing Meal.
+        if let meal = meal {
+            navigationItem.title = meal.name
+            nameTextField.text = meal.name
+            photoImageView.image = meal.photo
+            ratingControl.rating = meal.rating
+        }
+        
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
     }
@@ -43,7 +51,15 @@ class MealViewController: UIViewController,  UITextFieldDelegate, UIImagePickerC
     
     //MARK: Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        // Depending on style of presentation (model or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        if isPresentingInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("The MealViewController is not inseide a navigation controller.")
+        }
     }
     
     // Configure a view controller before it's presented
